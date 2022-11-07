@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+//Importar componentes
+import Show from './components/Show'
+import Edit from './components/Edit'
+import Create from './components/Create'
+//Importar BrowserRouter
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 function App() {
   return (
+    //Uso de BrowserRouter para dar rutas a los componentes
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Show/>}/>
+          <Route path='/edit/:id' element={<Edit/>}/>
+          <Route path='/create' element={<Create/>}/>
+        </Routes>      
+      </BrowserRouter>
     </div>
   );
 }
